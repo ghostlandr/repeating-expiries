@@ -1,6 +1,8 @@
 # Repeating Expiries
 
-Do you have events or calendar items that repeat, and you want to keep track of them in a way that doesn't require a calendar or an app (besides a web browser)? Well then this will be just the thing!
+Do you have events or calendar items that repeat, and you want to keep
+track of them in a way that doesn't require a calendar or an app (besides a web browser)?
+Well then this will be just the thing!
 
 ## What does it do?
 
@@ -12,4 +14,5 @@ Do you have events or calendar items that repeat, and you want to keep track of 
 
 ## Sounds sweet, where do I go to use it?
 
-At this moment, the app is just a figment of my imagination. But keep an eye on this page for more info as it develops.
+At this moment, the app is just a figment of my imagination. But keep an eye on
+this page for more info as it develops.
