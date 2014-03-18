@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="base-webapp" default="test" basedir=".">
+<project name="repeating-expiries" default="test" basedir=".">
 
     <property environment="env"/>
     <property name="srcdir" value="${basedir}/src"/>
