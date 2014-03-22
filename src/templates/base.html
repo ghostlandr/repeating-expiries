@@ -5,6 +5,11 @@
 </head>
 <body>
     {% block heading %}{% endblock %}
+    {% if login %}
+    <p>Hello, click <a href='{{ login }}'>here</a> to sign in</p>
+    {% elif logout %}
+    <p>Click <a href='{{ logout }}'>here</a> to sign out</p>
+    {% endif %}
 
     {% block content %}{% endblock %}
 
