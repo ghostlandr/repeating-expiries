@@ -2,7 +2,7 @@
 Main routes for the app
 """
 from app.views import TemplatedView
-from app.workflow.user import check_and_return_user
+from app.domain.user import get_current_user, get_log_links
 
 
 class MainView(TemplatedView):
@@ -12,7 +12,8 @@ class MainView(TemplatedView):
 
     def get(self):
         """ GET """
-        user, login_url, logout_url = check_and_return_user()
+        user = get_current_user()
+        logout_url, login_url = get_log_links()
 
         context = {
             "greeting": "Hello world!" if user else "Good night moon",
