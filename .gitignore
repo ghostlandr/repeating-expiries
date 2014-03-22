@@ -1,5 +1,6 @@
 .git/*
 .sass-cache/*
+coverage-report/*
 
 *.py[cod]
 
