@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+<h2>User</h2>
+{% endblock %}
+
+{% block content %}
+{% if new_user %}
+    <p>Hello, newbie! Welcome to this page. Let's get some info about yourself:</p>
+    <form method='post' action='/user/new'>
+        <label for='name'>Name</label><input type='text' name='name' id='name'/>
+        <label for='email'>Email</label><input type='email' name='email' id='email' value='{{ user }}'/>
+        <input type='submit'/>
+    </form>
+{% endif %}
+<p style="font-family: Menlo">Hello {{ new_user }} {{ user }} {{ ndb_user }}!</p>
+
+
+{% endblock %}
