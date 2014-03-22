@@ -32,7 +32,4 @@ class NewUserView(TemplatedView):
 
         user = get_or_create_user(name, email, users_user.user_id())
 
-        import logging
-        logging.info("I made something? {0}".format(user))
-
         self.redirect('/')

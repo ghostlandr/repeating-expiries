@@ -18,6 +18,11 @@ class User(BaseNdbModel):
         return key
 
     @staticmethod
+    def lookup_all(limit=100):
+        query = User.query()
+        return query.fetch(limit=limit)
+
+    @staticmethod
     def lookup_all_by_user_id(user_id):
         """ Look up users by their user_id """
         if not user_id:
