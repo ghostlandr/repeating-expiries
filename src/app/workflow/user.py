@@ -22,7 +22,7 @@ def get_or_create_user(name, email, user_id):
     key = User.build_key(user_id)
 
     user = key.get()
-    #Useless comment
+    
     if not user:
         kwargs = {
             'name': name,
