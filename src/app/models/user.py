@@ -1,12 +1,15 @@
 """
 User models
 """
-from google.appengine.api import users
 from google.appengine.ext import ndb
 
 from app.models import BaseNdbModel
 
 class User(BaseNdbModel):
+    """
+    User model. user_id mirrors the field provided when a user signs in with the
+    Users API provided with App Engine
+    """
     user_id = ndb.StringProperty()
     name = ndb.StringProperty()
     email = ndb.StringProperty()
@@ -18,7 +21,10 @@ class User(BaseNdbModel):
         return key
 
     @staticmethod
-    def lookup_all(limit=100):
+    def lookup_all(limit=None):
+        """ Looks up all User entities. A numerical limit may be passed in.  """
+        if limit and not isinstance(limit, int):
+            raise ValueError("Limit must be an integer")
         query = User.query()
         return query.fetch(limit=limit)
 

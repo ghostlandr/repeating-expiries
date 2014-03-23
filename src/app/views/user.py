@@ -30,6 +30,7 @@ class NewUserView(TemplatedView):
         email = self.request.POST.get('email')
         users_user = get_current_user()
 
-        user = get_or_create_user(name, email, users_user.user_id())
+        # Acknowledging that it will return something, but have no use for it
+        _ = get_or_create_user(name, email, users_user.user_id())
 
         self.redirect('/')

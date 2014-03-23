@@ -19,6 +19,11 @@ class UserLookupTests(GaeTestCase):
     def tearDown(self):
         super(UserLookupTests, self).tearDown()
 
+    def test_lookup_all_limit_must_be_int(self):
+        with self.assertRaises(ValueError):
+            User.lookup_all(limit="50")
+            User.lookup_all(limit=50.0)
+
     def test_lookup_by_user_id_requires_user_id(self):
         with self.assertRaises(ValueError):
             User.lookup_all_by_user_id(None)

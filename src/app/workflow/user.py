@@ -1,8 +1,6 @@
 """
 Workflow methods for users
 """
-from google.appengine.api import users
-
 from app.domain.user import create_user
 from app.models.user import User
 
