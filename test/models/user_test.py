@@ -19,12 +19,12 @@ class UserLookupTests(GaeTestCase):
     def tearDown(self):
         super(UserLookupTests, self).tearDown()
 
-    def test_lookup_all_limit_must_be_int(self):
+    def test_get_users_limit_must_be_int(self):
         with self.assertRaises(ValueError):
-            User.lookup_all(limit="50")
-            User.lookup_all(limit=50.0)
+            User.get_users(limit="50")
+            User.get_users(limit=50.0)
 
-    def test_lookup_by_user_id_requires_user_id(self):
+    def test_lookup_all_by_user_id_requires_user_id(self):
         with self.assertRaises(ValueError):
             User.lookup_all_by_user_id(None)
 
@@ -39,6 +39,6 @@ class UserLookupTests(GaeTestCase):
         self.assertNotEqual(user[0].user_id, self.user_id2)
 
     def test_looking_up_correct_number_of_users(self):
-        users = User.lookup_all()
+        users = User.get_users()
         # Equal to two because two are created in setUp
         self.assertEqual(2, len(users))

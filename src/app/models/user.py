@@ -21,8 +21,8 @@ class User(BaseNdbModel):
         return key
 
     @staticmethod
-    def lookup_all(limit=None):
-        """ Looks up all User entities. A numerical limit may be passed in.  """
+    def get_users(limit=None):
+        """ Gets up all User entities. A numerical limit may be passed in.  """
         if limit and not isinstance(limit, int):
             raise ValueError("Limit must be an integer")
         query = User.query()
