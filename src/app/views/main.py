@@ -14,13 +14,12 @@ class MainView(TemplatedView):
         """ GET """
         logout_url, login_url = get_log_links()
         user, ndb_user, in_datastore = check_and_return_user()
-        stored_user = ndb_user.pop() if ndb_user else None
+        stored_user = ndb_user if ndb_user else None
 
         context = {
             "user": stored_user if in_datastore else user
         }
-        import logging
-        logging.info("Users user: {0}, ndb_user: {1}".format(user, ndb_user))
+
         if user:
             context["logout"] = logout_url
         else:

@@ -14,8 +14,10 @@ def check_and_return_user():
     in_datastore = False
 
     if user:
-        ndb_user = User.lookup_all_by_user_id(user.user_id())
-        in_datastore = True if len(ndb_user) else False
+        user_query = User.lookup_all_by_user_id(user.user_id())
+        if len(user_query):
+            ndb_user = user_query[0]
+            in_datastore = True
 
     return user, ndb_user, in_datastore
 

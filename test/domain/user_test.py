@@ -82,8 +82,7 @@ class UserCheckAndReturnWithUsersUserTests(UserCreateTests):
 
     def test_check_and_return_user_gets_correct_datastore_user(self):
         _, ndb_user, in_datastore = check_and_return_user()
-        self.assertIsInstance(ndb_user, list)
-        self.assertEqual(ndb_user[0].user_id, self.user_id)
+        self.assertEqual(ndb_user.user_id, self.user_id)
         self.assertTrue(in_datastore)
 
 
