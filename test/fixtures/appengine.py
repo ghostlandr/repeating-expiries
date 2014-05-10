@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from webapp2 import cached_property
 from minimock import Mock, mock, restore as minimock_restore
 from google.appengine.ext import testbed
-from google.appengine.api import urlfetch, datastore_types
+from google.appengine.api import urlfetch, datastore_types, user_service_stub
 from google.appengine.api.namespace_manager import get_namespace, set_namespace
 from google.appengine.ext.testbed import TASKQUEUE_SERVICE_NAME
 
@@ -25,6 +25,7 @@ class GaeTestCase(unittest.TestCase):
         self.testbed.init_memcache_stub()
         self.testbed.init_taskqueue_stub(_all_queues_valid=True)
         self.testbed.init_urlfetch_stub(enable=False)
+        self.testbed.init_user_stub()
 
     def tearDown(self):
         """ Tears down the test environment. """
@@ -66,7 +67,7 @@ class GaeTestCase(unittest.TestCase):
             if self.response.raises:
                 raise self.response.raises
             return self.response
-        
+
         # pylint: disable=W0612
         # Unused variable 'google'
         import google.appengine.api.urlfetch

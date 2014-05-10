@@ -2,7 +2,7 @@
 Main routes for the app
 """
 from app.views import TemplatedView
-from app.domain.user import get_current_user, get_log_links
+from app.domain.user import get_log_links, check_and_return_user
 
 
 class MainView(TemplatedView):
@@ -12,11 +12,12 @@ class MainView(TemplatedView):
 
     def get(self):
         """ GET """
-        user = get_current_user()
         logout_url, login_url = get_log_links()
+        user, ndb_user, in_datastore = check_and_return_user()
+        stored_user = ndb_user if ndb_user else None
 
         context = {
-            "greeting": "Hello world!" if user else "Good night moon",
+            "user": stored_user if in_datastore else user
         }
 
         if user:

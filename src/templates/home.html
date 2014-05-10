@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<p>{{ greeting }}</p>
+{% if user %}
+<p>Hello {{ user.name }}! Nice to see you again.</p>
+{% endif %}
 {% endblock %}
