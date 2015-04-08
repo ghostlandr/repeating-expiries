@@ -1,4 +1,4 @@
-# Repeating Expiries
+# Repeating Expiries ![image](https://travis-ci.org/gholts/repeating-expiries.svg?branch=master)
 
 Do you have events or calendar items that repeat, and you want to keep
 track of them in a way that doesn't require a calendar or an app (besides a web browser)?
