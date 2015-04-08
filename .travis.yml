@@ -4,5 +4,5 @@ python:
 before_script:
   - wget "http://gyamp.com/hiroshi/google_appengine_zip" -nv
   - unzip -q google_appengine_zip
-  - sudo ln -s `pwd`/google_appengine/dev_appserver.py /usr/local/bin/dev_appserver.py
+  - sudo ln -s `pwd`/google_appengine /usr/local/google_appengine
 script: ant test
